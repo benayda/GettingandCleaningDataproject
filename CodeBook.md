@@ -43,33 +43,33 @@ These are the specific steps in run_analysis.R that perform the transformations 
 1. First, the script reads the data into the features_df data frame.
 2. Then the script adds column labels to the features_df data frame.
 3. The script then uses the make.names function to change illegal characters (parentheses and minus sign) to dots.
-The script also changes the names of duplicates of the feature_name.
-Then the script reads in the activity_labels.txt file.
-Next, the script adds column labels to the activity_df data frame.
-Then the script reads in the subject_train.txt file.
-After that, column labels are added to the subject_train_df data frame.
-The next step is to read in the X_train.txt file.
-Then, column labels are added to the X_train_df data frame.
-The script then reads in the y_train.txt file.
-Column labels are added to the y_train_df data frame.
-Then the script reads in the subject_test.txt file.
-Column labels are added to the subject_test_df data frame.
-Then the script reads in the X_test.txt file.
-Column labels are added to the X_test_df data frame.
-After that, the script reads in the y_test.txt file.
-Column labels are then added to the y_test_df data frame.
-The script merges the three separate training sets into a composite training data set.
-Then the script merges the three separate test sets into a composite test data set.
-After that, the script merges the training and test sets to create one data set. The script then extracts only the measurements on the mean and standard deviation for each measurement. For this script, the  decision was made that the measurements of mean for each measurement are ones that include the characters "mean" in lowercase or "Mean" with an uppercase "M" and include those that are indicated by the  characters "meanFreq".
-The standard deviation measurements were indicated by the characters "std".
-The script does the extraction by selecting column headings containing either "mean" or "std" and the resulting data set is called res_df.
-The script then names the activities in the data set, res_df.
-The next step in the script is to replace the second column in the res_df data frame, which is labeled activity_num, with the corresponding string, which is the appropriate activity name.
-Next the script changes the labels in the data set, res_df, to descriptive variable names.
-The script then creates a second, independent tidy data set with the average of each variable computed for each activity and each subject.
-The data are grouped by each activity and each subject and the mean of each feature variable is computed.
-The rows are then sorted in ascending order, first by subject then by activity.
-The script then writes the tidy data set as a text file named tidy_dataset.txt without the row names that were added when the data frame, sorted_df, was created.
+4. The script also changes the names of duplicates of the feature_name.
+5. Then the script reads in the activity_labels.txt file.
+6. Next, the script adds column labels to the activity_df data frame.
+7. Then the script reads in the subject_train.txt file.
+8. After that, column labels are added to the subject_train_df data frame.
+9. The next step is to read in the X_train.txt file.
+10. Then, column labels are added to the X_train_df data frame.
+11. The script then reads in the y_train.txt file.
+12. Column labels are added to the y_train_df data frame.
+13. Then the script reads in the subject_test.txt file.
+14. Column labels are added to the subject_test_df data frame.
+15. Then the script reads in the X_test.txt file.
+16. Column labels are added to the X_test_df data frame.
+17. After that, the script reads in the y_test.txt file.
+18. Column labels are then added to the y_test_df data frame.
+19. The script merges the three separate training sets into a composite training data set.
+20. Then the script merges the three separate test sets into a composite test data set.
+21. After that, the script merges the training and test sets to create one data set. 
+22. The script then extracts only the measurements on the mean and standard deviation for each measurement. For this script, the  decision was made that the measurements of mean for each measurement are ones that include the characters "mean" in lowercase or "Mean" with an uppercase "M" and include those that are indicated by the  characters "meanFreq".
+23. The standard deviation measurements were indicated by the characters "std".
+24. The script does the extraction by selecting column headings containing "mean", "Mean" or "meanFreq", or "std", and the resulting data set is called res_df.
+25. The script then names the activities in the data set, res_df.
+26. The next step in the script is to replace the second column in the res_df data frame, which is labeled activity_num, with the corresponding string, which is the appropriate activity name.
+27. Next the script changes the labels in the data set, res_df, to descriptive variable names.
+28. The script then creates a second, independent tidy data set with the average of each variable computed for each activity and each subject. The data are grouped by each activity and each subject and the mean of each feature variable is computed.
+29. The rows are then sorted in ascending order, first by subject then by activity.
+30. The script then writes the tidy data set as a text file named tidy_dataset.txt without the row names that were added when the data frame, sorted_df, was created.
 
 ## Resulting tidy data set:
 
@@ -82,98 +82,100 @@ The 88 columns in the tidy data set are described below, with column numbers alo
 #### Explanation of Variables
 
 Each of the values in columns 3 through 88 is the mean of each feature variable computed for each activity and each subject.
-The description is for the feature variable, but the value we computed for each feature variable is the mean for that particular feature variable for each activity and each subject.
+The description is for the feature variable, but the value we computed for each feature variable is the mean for that particular feature variable for each activity and each subject. Please scroll horizontally to see the complete text of the variable descriptions.
 
-[1] "Subject" - an identifier to denote a volunteer who participated in the experiment, either in the training or the test data set                                             
-[2] "Activity" - the name of each activity of daily living performed by the volunteers in the experiment. There were six different activities performed.                                            
-[3] "timeBodyAccelerometer.meanX" - mean of time domain signal for linear acceleration measurement of the body along x axis                         
-[4] "timeBodyAccelerometer.meanY" - mean of time domain signal for linear acceleration measurement of the body along y axis                         
-[5] "timeBodyAccelerometer.meanZ" - mean of time domain signal for linear acceleration measurement of the body along z axis                          
-[6] "timeGravityAccelerometer.meanX" - mean of time domain signal for gravitational measurement of the body along x axis                     
-[7] "timeGravityAccelerometer.meanY" - mean of time domain signal for gravitational measurement of the body along y axis                      
-[8] "timeGravityAccelerometer.meanZ" - mean of time domain signal for gravitational measurement of the body along z axis                      
-[9] "timeBodyAccelerometerJerk.meanX" - mean of time domain signal for body accelerometer jerk along x axis                     
-[10] "timeBodyAccelerometerJerk.meanY"- mean of time domain signal for body accelerometer jerk along y axis                      
-[11] "timeBodyAccelerometerJerk.meanZ"- mean of time domain signal for body accelerometer jerk along z axis                     
-[12] "timeBodyGyroscope.meanX" - mean of time domain signal for angular velocity measurement of the body along x axis                            
-[13] "timeBodyGyroscope.meanY" - mean of time domain signal for angular velocity measurement of the body along y axis                             
-[14] "timeBodyGyroscope.meanZ" - mean of time domain signal for angular velocity measurement of the body along z axis                             
-[15] "timeBodyGyroscopeJerk.meanX" - mean of time domain signal for angular jerk measurement along x axis                          
-[16] "timeBodyGyroscopeJerk.meanY" - mean of time domain signal for angular jerk measurement along y axis                         
-[17] "timeBodyGyroscopeJerk.meanZ" - mean of time domain signal for angular jerk measurement along z axis                         
-[18] "timeBodyAccelerometerMagnitude.mean"- mean of time domain signal for body accelerometer magnitude                  
-[19] "timeGravityAccelerometerMagnitude.mean" -  mean of time domain signal for gravity accelerometer magnitude               
-[20] "timeBodyAccelerometerJerkMagnitude.mean" - mean of time domain signal for body accelerometer jerk magnitude              
-[21] "timeBodyGyroscopeMagnitude.mean" - mean of time domain signal for angular velocity magnitude                      
-[22] "timeBodyGyroscopeJerkMagnitude.mean" - mean of time domain signal for angular jerk magnitude                 
-[23] "frequencyBodyAccelerometer.meanX" - mean of frequency domain signal for linear acceleration measurement of the body along x axis                    
-[24] "frequencyBodyAccelerometer.meanY" - mean of frequency domain signal for linear acceleration measurement of the body along y axis                    
-[25] "frequencyBodyAccelerometer.meanZ" - mean of frequency domain signal for linear acceleration measurement of the body along z axis                   
+```
+[1] "Subject" - an identifier to denote a volunteer who participated in the experiment, either in the training or the test data set
+[2] "Activity" - the name of each activity of daily living performed by volunteers in the experiment. 
+     There were six different activities performed: 
+     WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, and LAYING.
+[3] "timeBodyAccelerometer.meanX" - mean of time domain signal for linear acceleration measurement of the body along x axis
+[4] "timeBodyAccelerometer.meanY" - mean of time domain signal for linear acceleration measurement of the body along y axis
+[5] "timeBodyAccelerometer.meanZ" - mean of time domain signal for linear acceleration measurement of the body along z axis
+[6] "timeGravityAccelerometer.meanX" - mean of time domain signal for gravitational measurement of the body along x axis
+[7] "timeGravityAccelerometer.meanY" - mean of time domain signal for gravitational measurement of the body along y axis
+[8] "timeGravityAccelerometer.meanZ" - mean of time domain signal for gravitational measurement of the body along z axis
+[9] "timeBodyAccelerometerJerk.meanX" - mean of time domain signal for body accelerometer jerk along x axis           
+[10] "timeBodyAccelerometerJerk.meanY"- mean of time domain signal for body accelerometer jerk along y axis
+[11] "timeBodyAccelerometerJerk.meanZ"- mean of time domain signal for body accelerometer jerk along z axis    
+[12] "timeBodyGyroscope.meanX" - mean of time domain signal for angular velocity measurement of the body along x axis
+[13] "timeBodyGyroscope.meanY" - mean of time domain signal for angular velocity measurement of the body along y axis
+[14] "timeBodyGyroscope.meanZ" - mean of time domain signal for angular velocity measurement of the body along z axis
+[15] "timeBodyGyroscopeJerk.meanX" - mean of time domain signal for angular jerk measurement along x axis
+[16] "timeBodyGyroscopeJerk.meanY" - mean of time domain signal for angular jerk measurement along y axis
+[17] "timeBodyGyroscopeJerk.meanZ" - mean of time domain signal for angular jerk measurement along z axis
+[18] "timeBodyAccelerometerMagnitude.mean"- mean of time domain signal for body accelerometer magnitude
+[19] "timeGravityAccelerometerMagnitude.mean" -  mean of time domain signal for gravity accelerometer magnitude
+[20] "timeBodyAccelerometerJerkMagnitude.mean" - mean of time domain signal for body accelerometer jerk magnitude
+[21] "timeBodyGyroscopeMagnitude.mean" - mean of time domain signal for angular velocity magnitude
+[22] "timeBodyGyroscopeJerkMagnitude.mean" - mean of time domain signal for angular jerk magnitude 
+[23] "frequencyBodyAccelerometer.meanX" - mean of frequency domain signal for linear acceleration measurement of the body along x axis
+[24] "frequencyBodyAccelerometer.meanY" - mean of frequency domain signal for linear acceleration measurement of the body along y axis
+[25] "frequencyBodyAccelerometer.meanZ" - mean of frequency domain signal for linear acceleration measurement of the body along z axis
 [26] "frequencyBodyAccelerometer.meanFrequencyX" - Weighted average of the frequency components to obtain a mean frequency of accelerometer measurements along x axis
-           
-[27] "frequencyBodyAccelerometer.meanFrequencyY" - Weighted average of the frequency components to obtain a mean frequency of accelerometer measurements along y axis           
-[28] "frequencyBodyAccelerometer.meanFrequencyZ" - Weighted average of the frequency components to obtain a mean frequency of accelerometer measurements along z axis          
-[29] "frequencyBodyAccelerometerJerk.meanX" - mean of frequency domain signal for body accelerometer jerk along x axis                
-[30] "frequencyBodyAccelerometerJerk.meanY" - mean of frequency domain signal for body accelerometer jerk along y axis                
-[31] "frequencyBodyAccelerometerJerk.meanZ" - mean of frequency domain signal for body accelerometer jerk along z axis                
-[32] "frequencyBodyAccelerometerJerk.meanFrequencyX" - Weighted average of the frequency components to obtain a mean frequency of jerk measurements along x axis        
-[33] "frequencyBodyAccelerometerJerk.meanFrequencyY" - Weighted average of the frequency components to obtain a mean frequency of jerk measurements along y axis       
-[34] "frequencyBodyAccelerometerJerk.meanFrequencyZ" - Weighted average of the frequency components to obtain a mean frequency of jerk measurements along z axis       
-[35] "frequencyBodyGyroscope.meanX" - mean of frequency domain signal for angular velocity measurement of the body along x axis                       
-[36] "frequencyBodyGyroscope.meanY" - mean of frequency domain signal for angular velocity measurement of the body along y axis                         
-[37] "frequencyBodyGyroscope.meanZ" - mean of frequency domain signal for angular velocity measurement of the body along z axis                       
-[38] "frequencyBodyGyroscope.meanFrequencyX" - Weighted average of the frequency components to obtain a mean frequency of angular velocity measurements along x axis               
-[39] "frequencyBodyGyroscope.meanFrequencyY" - Weighted average of the frequency components to obtain a mean frequency of angular velocity measurements along y axis               
-[40] "frequencyBodyGyroscope.meanFrequencyZ" - Weighted average of the frequency components to obtain a mean frequency of angular velocity measurements along z axis               
-[41] "frequencyBodyAccelerometerMagnitude.mean" - mean of frequency domain signal for body accelerometer magnitude           
-[42] "frequencyBodyAccelerometerMagnitude.meanFrequency" - weighted average of the frequency components to obtain a mean frequency of accelerometer magnitude measurements   
-[43] "frequencyBodyAccelerometerJerkMagnitude.mean" - mean of frequency domain signal for body accelerometer jerk magnitude        
+[27] "frequencyBodyAccelerometer.meanFrequencyY" - Weighted average of the frequency components to obtain a mean frequency of accelerometer measurements along y axis
+[28] "frequencyBodyAccelerometer.meanFrequencyZ" - Weighted average of the frequency components to obtain a mean frequency of accelerometer measurements along z axis
+[29] "frequencyBodyAccelerometerJerk.meanX" - mean of frequency domain signal for body accelerometer jerk along x axis
+[30] "frequencyBodyAccelerometerJerk.meanY" - mean of frequency domain signal for body accelerometer jerk along y axis
+[31] "frequencyBodyAccelerometerJerk.meanZ" - mean of frequency domain signal for body accelerometer jerk along z axis
+[32] "frequencyBodyAccelerometerJerk.meanFrequencyX" - Weighted average of the frequency components to obtain a mean frequency of jerk measurements along x axis
+[33] "frequencyBodyAccelerometerJerk.meanFrequencyY" - Weighted average of the frequency components to obtain a mean frequency of jerk measurements along y axis
+[34] "frequencyBodyAccelerometerJerk.meanFrequencyZ" - Weighted average of the frequency components to obtain a mean frequency of jerk measurements along z axis
+[35] "frequencyBodyGyroscope.meanX" - mean of frequency domain signal for angular velocity measurement of the body along x axis      
+[36] "frequencyBodyGyroscope.meanY" - mean of frequency domain signal for angular velocity measurement of the body along y axis          
+[37] "frequencyBodyGyroscope.meanZ" - mean of frequency domain signal for angular velocity measurement of the body along z axis        
+[38] "frequencyBodyGyroscope.meanFrequencyX" - Weighted average of the frequency components to obtain a mean frequency of angular velocity measurements along x axis        
+[39] "frequencyBodyGyroscope.meanFrequencyY" - Weighted average of the frequency components to obtain a mean frequency of angular velocity measurements along y axis
+[40] "frequencyBodyGyroscope.meanFrequencyZ" - Weighted average of the frequency components to obtain a mean frequency of angular velocity measurements along z axis
+[41] "frequencyBodyAccelerometerMagnitude.mean" - mean of frequency domain signal for body accelerometer magnitude
+[42] "frequencyBodyAccelerometerMagnitude.meanFrequency" - weighted average of the frequency components to obtain a mean frequency of accelerometer magnitude measurements
+[43] "frequencyBodyAccelerometerJerkMagnitude.mean" - mean of frequency domain signal for body accelerometer jerk magnitude
 [44] "frequencyBodyAccelerometerJerkMagnitude.meanFrequency" - weighted average of the frequency components to obtain a mean frequency of accelerometer jerk magnitude measurements
-[45] "frequencyBodyGyroscopeMagnitude.mean" - mean of frequency domain signal for angular velocity magnitude                 
-[46] "frequencyBodyGyroscopeMagnitude.meanFrequency" - weighted average of the frequency components to obtain a mean frequency of angular velocity magnitude measurements       
-[47] "frequencyBodyGyroscopeJerkMagnitude.mean"- mean of frequency domain signal for body accelerometer magnitude             
-[48] "frequencyBodyGyroscopeJerkMagnitude.meanFrequency" - weighted average of the frequency components to obtain a mean frequency of angular velocity jerk magnitude measurements  
-[49] "angle.tBodyAccelerometerMean.gravity" - mean angle between the time domain signal for body acceleration and the direction of gravity                 
-[50] "angle.tBodyAccelerometerJerkMeangravityMean" - mean angle between the time domain signal for body jerk and the direction of gravity          
-[51] "angle.tBodyGyroscopeMean.gravityMean" - mean angle between the time domain signal for angular velocity and the direction of gravity                
-[52] "angle.tBodyGyroscopeJerkMean.gravityMean" - mean angle between the time domain signal for angular jerk and the direction of gravity             
-[53] "angle.X.gravityMean"- mean angle between X direction and the direction of gravity                                 
-[54] "angle.Y.gravityMean"- mean angle between Y direction and the direction of gravity                                  
-[55] "angle.Z.gravityMean"- mean angle between Z direction and the direction of gravity                                  
-[56] "timeBodyAccelerometer.stdX" - standard deviation of time domain signal for linear acceleration measurement of the body along x axis                          
-[57] "timeBodyAccelerometer.stdY" - standard deviation of time domain signal for linear acceleration measurement of the body along y axis                           
-[58] "timeBodyAccelerometer.stdZ" - standard deviation of time domain signal for linear acceleration measurement of the body along z axis                                                      
-[59] "timeGravityAccelerometer.stdX" - standard deviation of time domain signal for gravitational measurement of the body along x axis                       
-[60] "timeGravityAccelerometer.stdY" - standard deviation of time domain signal for gravitational measurement of the body along y axis                       
-[61] "timeGravityAccelerometer.stdZ" - standard deviation of time domain signal for gravitational measurement of the body along z axis                       
-[62] "timeBodyAccelerometerJerk.stdX"- standard deviation of time domain signal for accelerometer jerk measurement of the body along x axis                      
-[63] "timeBodyAccelerometerJerk.stdY"- standard deviation of time domain signal for accelerometer jerk measurement of the body along y axis                       
-[64] "timeBodyAccelerometerJerk.stdZ"- standard deviation of time domain signal for accelerometer jerk measurement of the body along z axis                       
-[65] "timeBodyGyroscope.stdX" - standard deviation of time domain signal for angular velocity measurement of the body along x axis                              
-[66] "timeBodyGyroscope.stdY" - standard deviation of time domain signal for angular velocity measurement of the body along y axis                              
-[67] "timeBodyGyroscope.stdZ" - standard deviation of time domain signal for angular velocity measurement of the body along z axis                              
-[68] "timeBodyGyroscopeJerk.stdX" - standard deviation of time domain signal for angular jerk measurement along x axis                           
-[69] "timeBodyGyroscopeJerk.stdY" - standard deviation of time domain signal for angular jerk measurement along y axis                          
-[70] "timeBodyGyroscopeJerk.stdZ" - standard deviation of time domain signal for angular jerk measurement along z axis                          
-[71] "timeBodyAccelerometerMagnitude.std" - standard deviation of time domain signal for body accelerometer magnitude                  
-[72] "timeGravityAccelerometerMagnitude.std" - standard deviation of time domain signal for gravitational measurement of accelerometer magnitude                
-[73] "timeBodyAccelerometerJerkMagnitude.std"- standard deviation of time domain signal for gravitational measurement of accelerometer jerk magnitude               
-[74] "timeBodyGyroscopeMagnitude.std" - standard deviation of time domain signal for angular velocity magnitude                     
-[75] "timeBodyGyroscopeJerkMagnitude.std"- standard deviation of time domain signal for angular velocity jerk magnitude                  
-[76] "frequencyBodyAccelerometer.stdX" - standard deviation of frequency domain signal for linear acceleration measurement of the body along x axis                     
-[77] "frequencyBodyAccelerometer.stdY" - standard deviation of frequency domain signal for linear acceleration measurement of the body along y axis                     
-[78] "frequencyBodyAccelerometer.stdZ" - standard deviation of frequency domain signal for linear acceleration measurement of the body along z axis                     
-[79] "frequencyBodyAccelerometerJerk.stdX"- standard deviation of frequency domain signal for accelerometer jerk measurement of the body along x axis                  
-[80] "frequencyBodyAccelerometerJerk.stdY"- standard deviation of frequency domain signal for accelerometer jerk measurement of the body along y axis                 
-[81] "frequencyBodyAccelerometerJerk.stdZ"- standard deviation of frequency domain signal for accelerometer jerk measurement of the body along z axis                  
-[82] "frequencyBodyGyroscope.stdX" - standard deviation of frequency domain signal for angular velocity measurement of the body along x axis                         
-[83] "frequencyBodyGyroscope.stdY" - standard deviation of frequency domain signal for angular velocity measurement of the body along y axis                         
-[84] "frequencyBodyGyroscope.stdZ" - standard deviation of frequency domain signal for angular velocity measurement of the body along z axis                         
-[85] "frequencyBodyAccelerometerMagnitude.std"- standard deviation of frequency domain signal for linear acceleration magnitude measurement              
-[86] "frequencyBodyAccelerometerJerkMagnitude.std" - standard deviation of frequency domain signal measured by gyroscope reading of the linear acceleration of the body         
-[87] "frequencyBodyGyroscopeMagnitude.std"- standard deviation of frequency domain signal measured by gyroscope reading                  
-[88] "frequencyBodyGyroscopeJerkMagnitude.std"- standard deviation of frequency domain signal measured by gyroscope reading of the angular velocity of the body   
-
+[45] "frequencyBodyGyroscopeMagnitude.mean" - mean of frequency domain signal for angular velocity magnitude
+[46] "frequencyBodyGyroscopeMagnitude.meanFrequency" - weighted average of the frequency components to obtain a mean frequency of angular velocity magnitude measurements  
+[47] "frequencyBodyGyroscopeJerkMagnitude.mean"- mean of frequency domain signal for body accelerometer magnitude   
+[48] "frequencyBodyGyroscopeJerkMagnitude.meanFrequency" - weighted average of the frequency components to obtain a mean frequency of angular velocity jerk magnitude measurements
+[49] "angle.tBodyAccelerometerMean.gravity" - mean angle between the time domain signal for body acceleration and the direction of gravity
+[50] "angle.tBodyAccelerometerJerkMeangravityMean" - mean angle between the time domain signal for body jerk and the direction of gravity
+[51] "angle.tBodyGyroscopeMean.gravityMean" - mean angle between the time domain signal for angular velocity and the direction of gravity
+[52] "angle.tBodyGyroscopeJerkMean.gravityMean" - mean angle between the time domain signal for angular jerk and the direction of gravity
+[53] "angle.X.gravityMean"- mean angle between X direction and the direction of gravity
+[54] "angle.Y.gravityMean"- mean angle between Y direction and the direction of gravity
+[55] "angle.Z.gravityMean"- mean angle between Z direction and the direction of gravity
+[56] "timeBodyAccelerometer.stdX" - standard deviation of time domain signal for linear acceleration measurement of the body along x axis 
+[57] "timeBodyAccelerometer.stdY" - standard deviation of time domain signal for linear acceleration measurement of the body along y axis     
+[58] "timeBodyAccelerometer.stdZ" - standard deviation of time domain signal for linear acceleration measurement of the body along z axis                                   
+[59] "timeGravityAccelerometer.stdX" - standard deviation of time domain signal for gravitational measurement of the body along x axis     
+[60] "timeGravityAccelerometer.stdY" - standard deviation of time domain signal for gravitational measurement of the body along y axis        
+[61] "timeGravityAccelerometer.stdZ" - standard deviation of time domain signal for gravitational measurement of the body along z axis         
+[62] "timeBodyAccelerometerJerk.stdX"- standard deviation of time domain signal for accelerometer jerk measurement of the body along x axis           
+[63] "timeBodyAccelerometerJerk.stdY"- standard deviation of time domain signal for accelerometer jerk measurement of the body along y axis              
+[64] "timeBodyAccelerometerJerk.stdZ"- standard deviation of time domain signal for accelerometer jerk measurement of the body along z axis
+[65] "timeBodyGyroscope.stdX" - standard deviation of time domain signal for angular velocity measurement of the body along x axis
+[66] "timeBodyGyroscope.stdY" - standard deviation of time domain signal for angular velocity measurement of the body along y axis
+[67] "timeBodyGyroscope.stdZ" - standard deviation of time domain signal for angular velocity measurement of the body along z axis
+[68] "timeBodyGyroscopeJerk.stdX" - standard deviation of time domain signal for angular jerk measurement along x axis
+[69] "timeBodyGyroscopeJerk.stdY" - standard deviation of time domain signal for angular jerk measurement along y axis
+[70] "timeBodyGyroscopeJerk.stdZ" - standard deviation of time domain signal for angular jerk measurement along z axis
+[71] "timeBodyAccelerometerMagnitude.std" - standard deviation of time domain signal for body accelerometer magnitude
+[72] "timeGravityAccelerometerMagnitude.std" - standard deviation of time domain signal for gravitational measurement of accelerometer magnitude
+[73] "timeBodyAccelerometerJerkMagnitude.std"- standard deviation of time domain signal for gravitational measurement of accelerometer jerk magnitude
+[74] "timeBodyGyroscopeMagnitude.std" - standard deviation of time domain signal for angular velocity magnitude
+[75] "timeBodyGyroscopeJerkMagnitude.std"- standard deviation of time domain signal for angular velocity jerk magnitude
+[76] "frequencyBodyAccelerometer.stdX" - standard deviation of frequency domain signal for linear acceleration measurement of the body along x axis
+[77] "frequencyBodyAccelerometer.stdY" - standard deviation of frequency domain signal for linear acceleration measurement of the body along y axis
+[78] "frequencyBodyAccelerometer.stdZ" - standard deviation of frequency domain signal for linear acceleration measurement of the body along z axis
+[79] "frequencyBodyAccelerometerJerk.stdX"- standard deviation of frequency domain signal for accelerometer jerk measurement of the body along x axis
+[80] "frequencyBodyAccelerometerJerk.stdY"- standard deviation of frequency domain signal for accelerometer jerk measurement of the body along y axis
+[81] "frequencyBodyAccelerometerJerk.stdZ"- standard deviation of frequency domain signal for accelerometer jerk measurement of the body along z axis
+[82] "frequencyBodyGyroscope.stdX" - standard deviation of frequency domain signal for angular velocity measurement of the body along x axis
+[83] "frequencyBodyGyroscope.stdY" - standard deviation of frequency domain signal for angular velocity measurement of the body along y axis
+[84] "frequencyBodyGyroscope.stdZ" - standard deviation of frequency domain signal for angular velocity measurement of the body along z axis
+[85] "frequencyBodyAccelerometerMagnitude.std"- standard deviation of frequency domain signal for linear acceleration magnitude measurement
+[86] "frequencyBodyAccelerometerJerkMagnitude.std" - standard deviation of frequency domain signal measured by gyroscope reading of the linear acceleration of the body
+[87] "frequencyBodyGyroscopeMagnitude.std"- standard deviation of frequency domain signal measured by gyroscope reading
+[88] "frequencyBodyGyroscopeJerkMagnitude.std"- standard deviation of frequency domain signal measured by gyroscope reading of the angular velocity of the body
+```
 
 ## Citations and References:
 
