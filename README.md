@@ -1,3 +1,5 @@
+##  README.md file for Getting and Cleaning Data course project
+
 The R script called run_analysis.R performs the following transformations on the raw data:
 
 The script first merges the training and test sets to create one data set.
@@ -6,6 +8,8 @@ The script subsequently renames activities in the data set with appropriately de
 The script also labels the data set with descriptive variable names.
 Out of the resulting data set, the script creates another independent tidy data set.
 This independent data set contains the average of each variable for each activity and each subject.
+
+## Steps in run_analysis.R script to transform raw data into tidy data set
 
 These are the specific steps in run_analysis.R that perform the transformations upon the raw data:
 
@@ -40,7 +44,7 @@ The data are grouped by each activity and each subject and the mean of each feat
 The rows are then sorted in ascending order, first by subject then by activity.
 The script then writes the tidy data set as a text file named tidy_dataset.txt without the row names that were added when the data frame, sorted_df, was created.
 
-Resulting tidy data set:
+## Resulting tidy data set:
 
 The data set (the file tidy_dataset.txt) produced by the R script called run_analysis.R is tidy because each variable that is measured is in one column, and each observation of that variable is in a different row. The resulting data  set has 180 rows and 88 columns. The rows have been sorted in ascending order, first by subject and then by activity.
 
@@ -48,7 +52,7 @@ It is difficult to look at the tidy data set as a text file in Notepad or Wordpa
 The file is readable in R and appropriate R code is provided below to allow the reader to view the file in R.
 Assuming the code is run in the directory where the tidy_dataset.txt file is located, the following code can be run in the R console:
 
-R code to read the tidy_dataset.txt file into a data frame named tidy_data:
+## R code to read the tidy_dataset.txt file into a data frame named tidy_data:
 
 tidy_data <- read.table("tidy_dataset.txt", header = TRUE)
 
