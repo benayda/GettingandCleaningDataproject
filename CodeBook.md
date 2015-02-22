@@ -1,6 +1,9 @@
-Experimental design and background:
+## CodeBook.md file for Getting and Cleaning Data course project
+
+## Experimental design and background:
 
 The description of the experimental design and background information was gathered from the Human Activity Recognition Using Smartphones Data Set described in the UCI Machine Learning Repository at this site --
+
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 A series of experiments was performed using a group of thirty volunteers, ranging in age from 19 to 48 years old.
@@ -14,13 +17,15 @@ The experiments were recorded with video. This video was used to see which activ
 
 The sensor signals, that is, the measurements from the accelerometer and gyroscope, were pre-processed by applying noise filters. Then they were sampled in fixed-width sliding windows of 2.56 seconds and 50% overlap, resulting in 128 readings per window. The sensor acceleration signal with its gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. Since the gravitational force was assumed to have only low frequency components, a filter with a cutoff frequency of 0.3 Hz was used. From each window, calculating variables from the time and frequency domain resulted in a vector of features.
 
-Raw Data and Attribute Information:
+## Raw Data and Attribute Information:
 
 Each record in the set of raw data included the following measurements and labels to identify the activity performed and the subject performing the activity:
 
 - A 561-feature vector with time and frequency domain variables. 
 - A label indicating the type of activity the subject was performing. 
 - An identifier indicating the subject who carried out the experiment, whose measurements are included.
+
+## R script, run_analysis.R
 
 The R script performs the following transformations on the raw data:
 
@@ -31,11 +36,13 @@ The script also labels the data set with descriptive variable names.
 Out of the resulting data set, the script creates another independent tidy data set.
 This independent data set contains the average of each variable for each activity and each subject.
 
+## Steps in run_analysis.R script to transform raw data into tidy data set
+
 These are the specific steps in run_analysis.R that perform the transformations upon the raw data:
 
-First, the script reads the data into the features_df data frame.
-Then the script adds column labels to the features_df data frame.
-The script then uses the make.names function to change illegal characters (parentheses and minus sign) to dots.
+1. First, the script reads the data into the features_df data frame.
+2. Then the script adds column labels to the features_df data frame.
+3. The script then uses the make.names function to change illegal characters (parentheses and minus sign) to dots.
 The script also changes the names of duplicates of the feature_name.
 Then the script reads in the activity_labels.txt file.
 Next, the script adds column labels to the activity_df data frame.
@@ -64,13 +71,15 @@ The data are grouped by each activity and each subject and the mean of each feat
 The rows are then sorted in ascending order, first by subject then by activity.
 The script then writes the tidy data set as a text file named tidy_dataset.txt without the row names that were added when the data frame, sorted_df, was created.
 
-Resulting tidy data set:
+## Resulting tidy data set:
 
 The data set produced by the R script called run_analysis.R is tidy because each variable that is measured is in one column, and each observation of that variable is in a different row. The resulting data set has 180 rows and 88 columns. The rows have been sorted in ascending order, first by subject and then by activity.
 
 The 180 rows in the tidy data set are generated for 30 subjects performing six different activities.
 
 The 88 columns in the tidy data set are described below, with column numbers along with the name of each variable and a brief explanation of the feature variable in that column.
+
+#### Explanation of Variables
 
 Each of the values in columns 3 through 88 is the mean of each feature variable computed for each activity and each subject.
 The description is for the feature variable, but the value we computed for each feature variable is the mean for that particular feature variable for each activity and each subject.
@@ -166,21 +175,23 @@ The description is for the feature variable, but the value we computed for each 
 [88] "frequencyBodyGyroscopeJerkMagnitude.std"- standard deviation of frequency domain signal measured by gyroscope reading of the angular velocity of the body   
 
 
-Citations and References:
+## Citations and References:
 
 A description of the data and the experimental design can be found at the following link --
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-Citation:
+#### Citation:
 
 Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013.
 
 Jorge L. Reyes-Ortiz(1,2), Davide Anguita(1), Alessandro Ghio(1), Luca Oneto(1) and Xavier Parra(2)
 1 - Smartlab - Non-Linear Complex Systems Laboratory
-DITEN - Universit‡ degli Studi di Genova, Genoa (I-16145), Italy. 
+DITEN - Universit√† degli Studi di Genova, Genoa (I-16145), Italy. 
 2 - CETpD - Technical Research Centre for Dependency Care and Autonomous Living
-Universitat PolitËcnica de Catalunya (BarcelonaTech). Vilanova i la Geltr˙ (08800), Spain
+Universitat Polit√®cnica de Catalunya (BarcelonaTech). Vilanova i la Geltr√∫ (08800), Spain
 activityrecognition '@' smartlab.ws
+
+#### References: 
 
 For more information about the data and the research underlying the experimental design, please see the following papers:
 
@@ -190,4 +201,4 @@ Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra, Jorge L. Reyes-Ortiz.
 
 Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. 4th International Workshop of Ambient Assited Living, IWAAL 2012, Vitoria-Gasteiz, Spain, December 3-5, 2012. Proceedings. Lecture Notes in Computer Science 2012, pp 216-223. 
 
-Jorge Luis Reyes-Ortiz, Alessandro Ghio, Xavier Parra-Llanas, Davide Anguita, Joan Cabestany, Andreu Catal‡. Human Activity and Motion Disorder Recognition: Towards Smarter Interactive Cognitive Environments. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013.
+Jorge Luis Reyes-Ortiz, Alessandro Ghio, Xavier Parra-Llanas, Davide Anguita, Joan Cabestany, Andreu Catal√†. Human Activity and Motion Disorder Recognition: Towards Smarter Interactive Cognitive Environments. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013.
